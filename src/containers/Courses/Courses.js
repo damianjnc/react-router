@@ -29,14 +29,19 @@ class Courses extends Component {
                 <section className="Courses">
                     {
                         this.state.courses.map( course => {
-                            return (<Link  key={course.id} to={this.props.match.url + '/course'}>
-                                <article onClick={() => this.courseSelectedHandler(course.id, course.title)} className="Course">{course.title}
+                            return (<Link
+                                key={course.id}
+                                to={{
+                                    pathname:this.props.match.url + '/' + course.id,
+                                    search: '?title=' + course.title}}>
+                                <article
+                                    onClick={() => this.courseSelectedHandler(course.id, course.title)}
+                                    className="Course">{course.title}
                                 </article>
                             </Link>);
                         } )
                     }
                 </section>
-                {this.state.selectedCourseId ? (<Route path="/courses" component={() =><Course courseId={this.state.selectedCourseId} courseTitle={this.state.courseId} />} />): null}
                 </div>
             </Auxiliary>
         );

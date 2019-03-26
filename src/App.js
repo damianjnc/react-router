@@ -35,7 +35,7 @@ class App extends Component {
               </div>
 
               <Switch>
-                <Route path='/courses/course' component={Course}/>
+                <Route path='/courses/:courseId' component={Course}/>
                 <Route path="/courses" component={Courses} />
                 <Route path="/users"  component={Users}/>
                 <Redirect from="/all-courses" to="/courses" />
