@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Link, Route} from "react-router-dom";
 import './Courses.css';
 import Course from "../Course/Course";
-import Auxiliary from "../../App";
+import Auxiliary from "../../hoc/Auxiliary/Auxiliary";
 
 
 class Courses extends Component {
@@ -29,7 +29,7 @@ class Courses extends Component {
                 <section className="Courses">
                     {
                         this.state.courses.map( course => {
-                            return (<Link  key={course.id} to={this.props.match + '/course'}>
+                            return (<Link  key={course.id} to={this.props.match.url + '/course'}>
                                 <article onClick={() => this.courseSelectedHandler(course.id, course.title)} className="Course">{course.title}
                                 </article>
                             </Link>);
