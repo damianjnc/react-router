@@ -4,7 +4,7 @@ import Auxiliary from './hoc/Auxiliary/Auxiliary';
 
 import Courses from './containers/Courses/Courses';
 import Users from './containers/Users/Users';
-import Page404 from './containers/Page404/Page404';
+import Page404 from './component/Page404/Page404';
 import Course from "./containers/Course/Course";
 
 class App extends Component {
@@ -35,13 +35,13 @@ class App extends Component {
               </div>
 
               <Switch>
-                <Route path='/courses/:courseId' component={Course}/>
+                {/*<Route path='/courses/:courseId' component={Course}/>*/}
                 <Route path="/courses" component={Courses} />
                 <Route path="/users"  component={Users}/>
                 <Redirect from="/all-courses" to="/courses" />
                 <Route render={()=> <h1>Not found!</h1>}/>
                 {/*<Route path="/" exact render={()=> <h1>Welcome!</h1>}/>*/}
-                {/*<Route component={Page404}/>*/}
+                <Route component={Page404}/>
               </Switch>
             </Auxiliary>
     );
